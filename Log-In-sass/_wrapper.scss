@@ -1,0 +1,16 @@
+.wrapper{
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    &>*{
+        padding: 1em;
+    }
+}
+.company-info{
+    background-color: #c9e6ff;
+    h3,ul{
+        text-align: center;
+        margin: 00 1rem 0;
+    }
+}
+.contact{
+    background-color: #f9feff;
+}

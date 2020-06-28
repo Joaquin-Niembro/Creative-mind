@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAA;EACG,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;CACZ;;AACD,AAAA,IAAI,CAAA;EACA,gBAAgB,EAAE,OAAO;CAQ5B;;AATD,AAEI,IAFA,CAEA,UAAU,CAAA;EACN,UAAU,EAAE,MAAM;CAKrB;;AARL,AAIQ,IAJJ,CAEA,UAAU,CAEN,EAAE,CAAA;EACE,SAAS,EAAE,MAAM;EACjB,WAAW,EAAE,+CAA+C;CAC/D",
+    "sources": [
+        "../DBbook-sass/DBbook.scss"
+    ],
+    "names": [],
+    "file": "DBbook.css"
+}

@@ -1,0 +1,146 @@
+<?php
+    include('php/sesion-start.php');
+    include('php/conexion.php');
+    include('php/songs.php');
+    include('php/admin.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/songs.css" />
+    <title>Creative Mind Forum</title>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="logo" />
+      <ul>
+        <li><a href="Forum.html">Forum</a></li>
+        <li><a href="Songs.html">Favorite Songs</a></li>
+        <li><a href="Books.html">Favorite Books</a></li>
+        <li>
+          <a href="#"><?php echo 'User: '.$_SESSION['user']; ?></a>
+        </li>
+        <li>
+          <a href="DBsongs.html"><?php echo "$admin"; ?></a>
+        </li>
+        <li><a href="close-session.php">Log-out</a></li>
+      </ul>
+    </header>
+    <h1>Creative Mind Songs</h1>
+    <?php echo "$msg"; ?>
+    <main>
+      <div class="forum">
+        <?php 
+        $sth=$con->query("select id,song,author,user from songs") ;
+        foreach(($con->query("select id,song,author,user from songs")) as
+        $fila){ ?>
+        <div class="container" id="cont">
+          <h1 id="title">
+            Song ID:
+            <?php echo $fila['id'];?>
+            <br />
+            Title:
+            <?php echo $fila['song'];?>
+            <br />
+            Author:
+            <?php echo $fila['author'];?>
+            <br />
+            User:
+            <?php echo $fila['user'];?>
+            <br>
+            <p id="hey"></p>
+            
+       
+           </br>
+            <br></br>
+            <button onclick="like()">Like</button>
+            <button onclick="comment()">comment</button>
+          </h1>
+        </div>
+        <?php,?>
+        <?php 
+          }?>
+        
+      </div>
+      <div class="sidebar">
+        <h1>Search for a Song!</h1>
+        <input
+          type="text"
+          id="filter"
+          placeholder="                    Search!"
+        />
+        <h1>Post a Song!</h1>
+        <form id="addForm" method="POST" action="Songs.html">
+          <input
+            type="text"
+            name="songs"
+            minlength="1"
+            maxlength="15"
+            id="element"
+            placeholder="Post Song!"
+          />
+          <input
+            type="text"
+            name="author"
+            minlength="5"
+            maxlength="15"
+            id="element"
+            placeholder="Author"
+          />
+          <input type="submit" value="Submit" id="btn" name="song"/>
+        </form>
+        <h1>Update a Song!</h1>
+        <form id="addForm" method="POST" action="Songs.html">
+          <h2>Select the ID of the Song! </h2>
+          <input
+            type="number"
+            min="0"
+            name="id"
+            minlength="5"
+            maxlength="20"
+            id="element"
+            placeholder="ID you want to update!"
+          />
+          <input
+            type="text"
+            min="0"
+            name="songs"
+            minlength="5"
+            maxlength="20"
+            id="element"
+            placeholder="Write song updated"
+          />
+          <input
+            type="text"
+            name="author"
+            minlength="5"
+            maxlength="20"
+            id="element"
+            placeholder="Author"
+          />
+          <input type="submit" id="btn" value="Submit" name="update" />
+        </form>
+        <h1>Delete Song!</h1>
+        <form id="addForm" method="POST" action="Songs.html">
+          <h2>Select the ID of the post! </h2>
+          <input
+            type="number"
+            min="0"
+            name="id"            
+            id="element"            
+          />
+          <input type="submit" id="btn" value="Delete" name="delete" />
+        </form>
+      </div>
+    </main>
+    <footer>
+      <h3>2020 & Creative Mind Forum</h3>
+    </footer>
+    <script src="Javascript/Forum.js"></script>
+    <script src="Javascript/like.js"></script>
+    <script src="Javascript/comment.js"></script>
+  </body>
+</html>

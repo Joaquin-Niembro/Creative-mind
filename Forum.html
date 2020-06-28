@@ -1,0 +1,150 @@
+<?php
+    include('php/sesion-start.php');
+    include('php/conexion.php');
+    include('php/admin.php');
+    include('php/forum.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/Forum.css" />
+    <title>Creative Mind Forum</title>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="logo" />
+      <ul>
+        <li><a href="Forum.html">Forum</a></li>
+        <li><a href="Songs.html">Favorite Songs</a></li>
+        <li><a href="Books.html">Favorite Books</a></li>
+        <li>
+          <a href="#"><?php echo 'User: '.$_SESSION['user']; ?></a>
+        </li>
+        <li>
+          <a href="DBposts.html"><?php echo "$admin"; ?></a>
+        </li>
+        <li><a href="close-session.php">Log-out</a></li>
+      </ul>
+    </header>
+    <h1>Creative Mind Forum</h1>
+    <?php echo "$msg"; ?>
+    <main>
+      <div class="forum">
+        <?php 
+ include('php/conexion.php');
+        $sth=$con->query("select id,post,author,user from posts") ;
+        foreach(($con->query("select id,post,author,user from posts")) as
+        $fila){ ?>
+        <div class="container" id="cont" >
+          
+          <h1 id="title" >
+            Post:
+            <?php echo $fila['id'];?>
+            <br />
+            <?php echo $fila['post'];?>
+            <br />
+            Author:
+            <?php echo $fila['author'];?>
+            <br />
+            User:
+            <?php echo $fila['user'];?>
+            <br>
+            <p id="hey"></p>
+            
+       
+           </br>
+            <br></br>
+            <button onclick="like()">Like</button>
+            <button onclick="comment()">comment</button>
+            
+          </h1>
+        
+        </div>
+        <?php,?>
+        <?php 
+          }?>
+        
+      </div>
+      <div class="sidebar">
+        <h1>Search for a thought!</h1>
+        <input
+          type="text"
+          id="filter"
+          placeholder="                    Search!"
+        />
+        <h1>Create a thought!</h1>
+        <form id="addForm" method="POST" action="Forum.html">
+          <textarea
+            name="thought"
+            id="text"
+            minlength="10"
+            maxlength="70"
+            cols="30"
+            rows="5"
+            placeholder="Write here! you've got 10-15 words!"
+          ></textarea>
+          <input
+            type="text"
+            name="author"
+            minlength="5"
+            maxlength="20"
+            id="element"
+            placeholder="Author"
+          />
+          <input type="submit" id="ct-btn" value="Submit" name="post" />
+        </form>
+        <h1>Update a thought!</h1>
+        <form id="addForm" method="POST" action="Forum.html">
+          <h2>Select the ID of the post! </h2>
+          <input
+            type="number"
+            min="0"
+            name="id"
+            minlength="5"
+            maxlength="20"
+            id="element"
+            placeholder="ID you want to update!"
+          />
+          <textarea
+            name="thought"
+            id="text"
+            minlength="10"
+            maxlength="70"
+            cols="30"
+            rows="5"
+            placeholder="Write here! you've got 10-15 words!"
+          ></textarea>
+          <input
+            type="text"
+            name="author"
+            minlength="5"
+            maxlength="20"
+            id="element"
+            placeholder="Author"
+          />
+          <input type="submit" id="ct-btn" value="Submit" name="update" />
+        </form>
+        <h1>Delete Thought!</h1>
+        <form id="addForm" method="POST" action="Forum.html">
+          <h2>Select the ID of the post! </h2>
+          <input
+            type="number"
+            min="0"
+            name="id"            
+            id="element"            
+          />
+          <input type="submit" id="ct-btn" value="Delete" name="delete" />
+        </form>
+      </div>
+    </main>
+    <footer>
+      <h3>2020 & Creative Mind Forum</h3>
+    </footer>
+    <script src="Javascript/Forum.js"></script>
+    <script src="Javascript/like.js"></script>
+    <script src="Javascript/comment.js"></script>
+  </body>
+</html>

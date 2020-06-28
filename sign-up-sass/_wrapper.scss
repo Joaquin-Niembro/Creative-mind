@@ -1,0 +1,31 @@
+.wrapper{
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    &>*{
+        padding: 1em;
+    }
+}
+.company-info{
+    background-color: #c9e6ff;
+    h3,ul{
+        text-align: center;
+        margin: 00 1rem 0;
+    }
+    li{
+        margin-bottom: 70%;
+    }
+    a{
+        text-decoration: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.2rem;
+        width: 75%;
+        height: 15%;
+        color: rgb(59, 100, 100);
+        padding: .8rem;
+        &:hover{
+            color: rgb(20, 39, 39);
+        }
+    }
+}
+.contact{
+    background-color: #f9feff;
+}

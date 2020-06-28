@@ -1,0 +1,58 @@
+main{
+    margin:10px auto;
+    width: 98%;
+    height: 80vh;
+    
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-template-areas: "forum forum forum side"
+                         "forum forum forum side"
+                         "forum forum forum side"
+                         "forum forum forum side";
+    grid-gap: 20px;                     
+    .forum{
+        grid-area: forum;
+        background-color: #b3cad8;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        overflow: auto;
+        .container{
+            height: 35%;
+            width: 25%;
+            background-color: rgb(95, 146, 167);
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+            color: floralwhite;
+            border-radius: 20px;
+            margin-top: 10px;
+            overflow: hidden;
+            &:hover h1{
+                top:0;
+            }
+            h1{
+                height: 100%;
+                width: 100%;
+                font-size: 1rem;
+                padding: 5px;
+                background-color: rgb(29, 94, 105);
+                position: relative;
+                display: flex;
+                
+                justify-content: center;
+                align-items: center;
+                top:100%;
+                text-align: justify;
+                border-radius: 20px;
+                transition: all .8s;
+                box-sizing: border-box;
+                
+            }
+        }
+    }
+                      
+}

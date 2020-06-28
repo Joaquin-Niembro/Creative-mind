@@ -1,0 +1,49 @@
+<?php
+    include('php/conexion.php');
+    include('php/validate.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="Brand"> <span>Log</span> In Now!</h1>
+        <div class="wrapper animated bounceInLeft">
+            <div class="company-info">
+                <h3>Creative Mind</h3>
+                <ul>                   
+                    <li><i class="fa fa-envelope"></i>Info@creativemind.com</li>                   
+                </ul>
+                <a href="principal.html">Go back!</a>
+            </div>
+            <div class="contact">
+                <?php if($msg != "") echo $msg ; ?>
+                <h3>Log In!</h3>
+                <form action="Log-In.html" method="POST">
+                    <p>
+                        <label for="email">User Name</label>
+                        <input type="text" name="email" placeholder="Enter User Name" required>
+                    </p>
+                    <p>
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" required>
+                    </p>
+                    
+                    
+                    
+                    <p class="full">
+                        <input class="button" type="submit"  name="registrar" value="Log-In">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

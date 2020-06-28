@@ -1,0 +1,48 @@
+<?php
+    include('php/sesion-start.php');
+    include('php/conexion.php');
+    
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/DBbook.css">
+    <title>Creative Mind Forum DB</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Book DB Report</h2>
+             
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Book</th>
+        <th>Author</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+        <?php 
+    $sth=$con->query("select id,book,author,user from books") ;
+    foreach(($con->query("select id,book,author,user from books")) as
+    $fila){ ?> 
+      <tr>
+        <td><?php echo $fila['id'];?></td>
+        <td><?php echo $fila['book'];?></td>
+        <td><?php echo $fila['author'];?></td>
+        <td><?php echo $fila['user'];?></td>
+      </tr>
+      <?php,?>
+      <?php 
+        }?>
+    </tbody>
+  </table>
+  <a href="Books.html" class="btn btn-info" role="button">Go back!</a>
+</div>
+
+</body>
+</html>

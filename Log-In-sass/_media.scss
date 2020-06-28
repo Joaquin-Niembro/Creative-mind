@@ -1,0 +1,14 @@
+@media(min-width:700px){
+    .wrapper{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        &>*{
+            padding: 2em;
+        }
+    }
+    .company-info{
+        h3,ul,.Brand{
+            text-align: left;
+        }
+    }
+}
